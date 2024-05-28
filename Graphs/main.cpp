@@ -52,22 +52,17 @@ void mergeSort(int* degrees, int numberOfVertices) {
 }
 
 void degreeSequence(int** graph, int numberOfVertices, int* degrees) {
-    int* degreesCopy = new int[numberOfVertices];
-    for (int i = 0; i < numberOfVertices; i++) {
-        degreesCopy[i] = degrees[i];
-    }
-    mergeSort(degreesCopy, numberOfVertices);
+    mergeSort(degrees, numberOfVertices);
     for (int i = numberOfVertices-1; i >= 0; i--) {
-		printf("%d ", degreesCopy[i]);
+		printf("%d ", degrees[i]);
 	}
     printf("\n");
-    delete[] degreesCopy;
 }
 
 void deepSearchFirst(int** graph, int vertex, bool* visited, int numberOfVertices, int* degrees) {
-    visited[vertex] = true;
+    visited[vertex] = true;;
     for (int i = 0; i < degrees[vertex]; i++) {
-        int index = graph[vertex][i];
+        int index = (graph[vertex][i]-1);
         if (!visited[index]) {
 			deepSearchFirst(graph, index, visited, numberOfVertices, degrees);
 		}
@@ -122,8 +117,8 @@ void numberOfComplementEdges(int** graph, int numberOfVertices) {
 	printf("?\n");
 }
 
-void graphAnalysis(int** graph, int numberOfVertices, int* degrees) {
-    degreeSequence(graph, numberOfVertices, degrees);
+void graphAnalysis(int** graph, int numberOfVertices, int* degrees, int* degreesCopy) {
+    degreeSequence(graph, numberOfVertices, degreesCopy);
     numberOfComponents(graph, numberOfVertices, degrees);
     bipartiteness(graph, numberOfVertices);
     eccentricityOfVertices(graph, numberOfVertices);
@@ -135,12 +130,13 @@ void graphAnalysis(int** graph, int numberOfVertices, int* degrees) {
     numberOfComplementEdges(graph, numberOfVertices);
 }
 
-void releaseMemory(int** graph, int numberOfVertices, int* degrees) {
+void releaseMemory(int** graph, int numberOfVertices, int* degrees, int* degreesCopy) {
     for (int i = 0; i < numberOfVertices; ++i) {
         delete[] graph[i];
     }
     delete[] graph;
     delete[] degrees;
+    delete[] degreesCopy;
 }
 
 void graphInput() {
@@ -150,16 +146,20 @@ void graphInput() {
     inputCorrectness = scanf("%d", &numberOfVertices);
     int** graph = new int* [numberOfVertices];
     int* degrees = new int[numberOfVertices];
+    int* degreesCopy = new int[numberOfVertices];
     for (int vertexIndex = 0; vertexIndex < numberOfVertices; vertexIndex++) {
         inputCorrectness = scanf("%d", &numberOfNeigbours);
         graph[vertexIndex] = new int[numberOfNeigbours];
+
         degrees[vertexIndex] = numberOfNeigbours;
+        degreesCopy[vertexIndex] = numberOfNeigbours;
+
         for (int neighbourIndex = 0; neighbourIndex < numberOfNeigbours; neighbourIndex++) {
             inputCorrectness = scanf("%d", &graph[vertexIndex][neighbourIndex]);
         }
     }
-    graphAnalysis(graph, numberOfVertices, degrees);
-    releaseMemory(graph, numberOfVertices, degrees);
+    graphAnalysis(graph, numberOfVertices, degrees, degreesCopy);
+    releaseMemory(graph, numberOfVertices, degrees, degreesCopy);
 }
 
 
