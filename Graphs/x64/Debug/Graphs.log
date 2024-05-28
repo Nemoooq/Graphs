@@ -1,2 +1,12 @@
-﻿  main.cpp
+﻿  bipartiteness.cpp
+  degreeSequence.cpp
+  diffrentSubgraphsC.cpp
+  eccentricityOfVertices.cpp
+  graphColorsGreedy.cpp
+  graphColorsLF.cpp
+  graphColorsSLF.cpp
+  numberOfComplementEdges.cpp
+  numberOfComponents.cpp
+  planarity.cpp
+  Generowanie kodu...
   Graphs.vcxproj -> C:\Users\Grzegorz\Desktop\sutyja\Algorytmy\Projekty\Graphs\x64\Debug\Graphs.exe
