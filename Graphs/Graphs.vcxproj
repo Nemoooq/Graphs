@@ -127,7 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bipartiteness.cpp" />
+    <ClCompile Include="degreeSequence.cpp" />
+    <ClCompile Include="diffrentSubgraphsC.cpp" />
+    <ClCompile Include="eccentricityOfVertices.cpp" />
+    <ClCompile Include="graphColorsGreedy.cpp" />
+    <ClCompile Include="graphColorsLF.cpp" />
+    <ClCompile Include="graphColorsSLF.cpp" />
+    <ClCompile Include="graphInput.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="numberOfComplementEdges.cpp" />
+    <ClCompile Include="numberOfComponents.cpp" />
+    <ClCompile Include="planarity.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="graph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
