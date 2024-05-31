@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
-#include <cstring>
 #include "graph.h"
 
 void printColorsGreedy(int* colors, int numberOfVertices) {
@@ -12,24 +11,24 @@ void printColorsGreedy(int* colors, int numberOfVertices) {
 
 void graphColorsGreedy(int** graph, int numberOfVertices, int* degrees) {
     int* colors = new int[numberOfVertices];
-    bool* usedColors = new bool[numberOfVertices];
+    int* usedColors = new int[numberOfVertices];
     int maxColorUsed = 0;
     for (int i = 0; i < numberOfVertices; i++) {
         colors[i] = 0;
     }
     for (int vertexID = 0; vertexID < numberOfVertices; vertexID++) {
         for (int i = 0; i <= maxColorUsed; i++) {
-            usedColors[i] = false;
+            usedColors[i] = 0;
         }
         for (int neighbourID = 0; neighbourID < degrees[vertexID]; neighbourID++) {
             int neighbour = graph[vertexID][neighbourID] - 1;
             if (colors[neighbour] != 0) {
-                usedColors[colors[neighbour] - 1] = true;
+                usedColors[colors[neighbour] - 1] = 1;
             }
         }
         int color;
         for (color = 0; color <= maxColorUsed; color++) {
-            if (!usedColors[color]) {
+            if (usedColors[color] == 0) {
                 break;
             }
         }
