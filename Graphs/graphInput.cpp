@@ -31,24 +31,24 @@ void graphInput() {
 
     int** graph = new int* [numberOfVertices];
     int* degrees = new int[numberOfVertices];
-    int* degreesCopy = new int[numberOfVertices];
+    int* sortedDegrees = new int[numberOfVertices];
     int* sortedVertexMap = new int[numberOfVertices];
 
-    readGraph(graph, degrees, degreesCopy, numberOfVertices, sortedVertexMap);
+    readGraph(graph, degrees, sortedDegrees, numberOfVertices, sortedVertexMap);
 
-    graphAnalysis(graph, numberOfVertices, degrees, degreesCopy, sortedVertexMap);
-    releaseMemory(graph, numberOfVertices, degrees, degreesCopy);
+    graphAnalysis(graph, numberOfVertices, degrees, sortedDegrees, sortedVertexMap);
+    releaseMemory(graph, numberOfVertices, degrees, sortedDegrees);
 }
 
-void graphAnalysis(int** graph, int numberOfVertices, int* degrees, int* degreesCopy, int* sortedVertexMap) {
-    degreeSequence(graph, numberOfVertices, degreesCopy, sortedVertexMap);
+void graphAnalysis(int** graph, int numberOfVertices, int* degrees, int* sortedDegrees, int* sortedVertexMap) {
+    degreeSequence(graph, numberOfVertices, sortedDegrees, sortedVertexMap);
     numberOfComponents(graph, numberOfVertices, degrees);
-    bipartiteness(graph, numberOfVertices);
+    bipartiteness(graph, numberOfVertices, degrees);
     eccentricityOfVertices(graph, numberOfVertices);
     planarity(graph, numberOfVertices);
     graphColorsGreedy(graph, numberOfVertices, degrees);
-    graphColorsLF(graph, numberOfVertices, degreesCopy, sortedVertexMap);
-    graphColorsSLF(graph, numberOfVertices);
+    graphColorsLF(graph, numberOfVertices, sortedDegrees, sortedVertexMap);
+    graphColorsSLF(graph, numberOfVertices, sortedDegrees,sortedVertexMap);
     diffrentSubgraphsC(graph, numberOfVertices);
     numberOfComplementEdges(graph, numberOfVertices, degrees);
 }

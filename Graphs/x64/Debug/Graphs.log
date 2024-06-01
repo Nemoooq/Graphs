@@ -9,6 +9,6 @@
   main.cpp
   numberOfComplementEdges.cpp
   numberOfComponents.cpp
+C:\Users\krzys\Desktop\Grześ\Algorytmy\Graphs\Graphs\graphInput.cpp(51,45): error C2059: błąd składniowy: „,”
   planarity.cpp
   Generowanie kodu...
-  Graphs.vcxproj -> C:\Users\Grzegorz\Desktop\sutyja\Algorytmy\Projekty\Graphs\x64\Debug\Graphs.exe
