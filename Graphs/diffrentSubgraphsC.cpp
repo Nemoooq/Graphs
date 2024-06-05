@@ -2,6 +2,7 @@
 #include <cstdio>
 #include "graph.h"
 
-void diffrentSubgraphsC(int** graph, int numberOfVertices) {
+// Not implemented yet
+void diffrentSubgraphsC() {
 	printf("?\n");
 }

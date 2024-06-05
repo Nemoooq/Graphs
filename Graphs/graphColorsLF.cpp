@@ -9,6 +9,7 @@ void printColorsLF(int* colors, int numberOfVertices) {
     printf("\n");
 }
 
+//Function to color the graph using LF algorithm, it same as greedy except commented lines
 void graphColorsLF(int** graph, int numberOfVertices, int* sortedDegrees, int* sortedVertexMap) {
     int* colors = new int[numberOfVertices];
     int* usedColors = new int[numberOfVertices];
@@ -21,7 +22,7 @@ void graphColorsLF(int** graph, int numberOfVertices, int* sortedDegrees, int* s
             usedColors[i] = 0;
         }
         for (int neighbourID = 0; neighbourID < sortedDegrees[vertexID]; neighbourID++) {
-            int neighbour = graph[sortedVertexMap[vertexID]][neighbourID] - 1;
+            int neighbour = graph[sortedVertexMap[vertexID]][neighbourID] - 1; //sortedVertexMap[vertexID] instead of vertexID becuse it differs from the original graph because of sorting
             if (colors[neighbour] != 0) {
                 usedColors[colors[neighbour] - 1] = 1;
             }
@@ -32,7 +33,7 @@ void graphColorsLF(int** graph, int numberOfVertices, int* sortedDegrees, int* s
                 break;
             }
         }
-        colors[sortedVertexMap[vertexID]] = color + 1;
+        colors[sortedVertexMap[vertexID]] = color + 1; //sortedVertexMap[vertexID] instead of vertexID becuse it differs from the original graph because of sorting
         if (color == maxColorUsed) {
             maxColorUsed++;
         }

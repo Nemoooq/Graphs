@@ -2,6 +2,7 @@
 #include <cstdio>
 #include "graph.h"
 
-void eccentricityOfVertices(int** graph, int numberOfVertices) {
+// Not implemented yet
+void eccentricityOfVertices() {
 	printf("?\n");
 }

@@ -4,9 +4,12 @@
 
 int main() {
 	int numberOfGraphs = 0;
-	scanf("%d", &numberOfGraphs);
+
+	scanf("%d", &numberOfGraphs);									// Reading the number of graphs to define how many times the graph will be readeda and analyzed
+
 	for (int graphID = 0; graphID < numberOfGraphs; graphID++) {
-		graphInput();
+		graphInput();												// Calling the function to read the graph and then analyze it
 	}
+
 	return 0;
 }

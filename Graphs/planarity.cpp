@@ -2,6 +2,6 @@
 #include <cstdio>
 #include "graph.h"
 
-void planarity(int** graph, int numberOfVertices) {
+void planarity() {
 	printf("?\n");
 }
